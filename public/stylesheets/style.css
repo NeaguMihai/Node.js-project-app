@@ -1,0 +1,25 @@
+.text-style1-big {
+  font-size: 5rem;
+  margin-top: 10rem;
+  color: steelblue;
+}
+
+body {
+  /* background-color: rgb(255, 251, 237); */
+}
+
+.space-10 {
+  margin-top: 10rem; 
+}
+
+.space-5{
+  margin-top: 5rem;
+}
+
+.space-1 {
+  margin-top: 10px;
+}
+
+.gradient-bg {
+  box-shadow: 0px 10px 20px 5px black;
+}

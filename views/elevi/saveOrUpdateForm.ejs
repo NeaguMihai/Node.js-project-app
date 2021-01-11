@@ -1,0 +1,72 @@
+<%- include ../fragments/headers.ejs  %> 
+
+    <div class="container space-10 gradient-bg" style="padding: 10px;">
+        <% if (messages.error) { %>
+            <div class="alert alert-danger" role="alert">
+                <%- messages.error %>
+            </div>
+            <% } %>
+            <div class="">
+
+                <form <% if(update != 'true'){ %>action="/elevi/elevnou"<%}else{%> action="/elevi/<%= elev.id%>/update" <% } %>   method="post">
+                    <div class="form-group " >
+                        <label for name="nume">Nume:</label>
+                        <% if(elev.nume.length <=2 && messages.error) {%>
+                        <span class="text-danger"> Introduceti date valide din minim 3 caractere </span>
+                            <% } %>
+                        <input type="text" class="form-control <% if(elev.nume.length <=2 && messages.error){%> <%='is-invalid'%><%}%>" name="nume" value="<%= elev.nume %>"
+                        autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" name="id" value="<%= elev.id %> ">
+                        
+                        <label for name="prenume">Prenume:</label>
+                        <% if(elev.prenume.length <=2 && messages.error) {%>
+                        <span class="text-danger"> Introduceti date valide din minim 3 caractere </span>
+                            <% } %>
+                        <input type="text" class="form-control <% if(elev.prenume.length <=2 && messages.error){%> <%='is-invalid'%><%}%>" name="prenume" value="<%= elev.prenume %>"
+                        autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for name="clasa">clasa:</label>
+                        <% if(!elev.clasa.match(/(^[1-9][A-Z]{1}$|(^[1][0-9][A-Z]{1}$))/) && messages.error) {%>
+                        <span class="text-danger"> Introduceti un format valid de clasa EX: 10B </span>
+                        <% } %>  
+                        <input type="text" class="form-control <% if(!elev.clasa.match(/(^[1-9][A-Z]{1}$|(^[1][0-9][A-Z]{1}$))/)&& messages.error){%> <%='is-invalid'%><%}%>" name="clasa" value="<%= elev.clasa %>"
+                        autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for name="scoala">Scoala:</label>
+                        <% if(elev.scoala.length <=2 && messages.error) {%>
+                        <span class="text-danger"> Introduceti un nume de scoala valid din minim 3 caractere </span>
+                            <% } %>
+                        <input type="text" class="form-control <% if(elev.scoala.length <=2 && messages.error){%> <%='is-invalid'%><%}%>" name="scoala" value="<%= elev.scoala %>"
+                        autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for name="scoala">Data nastere:</label>
+                        <% if(!elev.data_nastere.match(/^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/)  && messages.error) {%>
+                        <span class="text-danger"> Introduceti o data valida de tipul dd-MM-yyyy </span>
+                            <% } %>
+                        <input type="text" class="form-control<% if(!elev.data_nastere.match(/^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/) && messages.error){%> <%='is-invalid'%><%}%> " name="dataNastere"  value="<%= elev.data_nastere %>"
+                        autocomplete="off">
+                    </div>
+                    <% if(update == 'true') {%> 
+                    <div class="form-group">
+                        <label for name="scoala">Puncte:</label>
+                        <% if(!elev.puncte.match(/^[1-9]{1,10}$/) && messages.error) {%>
+                        <span class="text-danger"> Introduceti un numar valid pozitiv </span>
+                            <% } %>
+                        <input type="number" class="form-control<% if(!elev.puncte.match(/^[1-9]{1,10}$/) && messages.error){%> <%='is-invalid'%><%}%> " name="puncte" value="<%= parseInt(elev.puncte) %>"
+                        autocomplete="off">
+                    </div>
+                    <% } %> 
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <input type="submit" class="btn btn-outline-secondary" value="Adauga" />
+                    </div>
+                </form>
+            </div>
+            </div>
+        </body>
+        </html>
+        

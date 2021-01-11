@@ -1,0 +1,87 @@
+<%- include ../fragments/headers.ejs  %> 
+
+    <div class="container space-10 gradient-bg" style="padding: 10px;">
+        <% if (messages.error) { %>
+            <div class="alert alert-danger" role="alert">
+                <%- messages.error %>
+            </div>
+            <% } %>
+            <div class="">
+
+                <form <% if(update != 'true'){ %>action="/teme/temanoua"<%}else{%> action="/teme/<%= tema.id%>/update" <% } %>   method="post">
+                    <div class="form-group " >
+                        <label for name="nume">Nume Tema:</label>
+                        <% if(tema.numeTema.length <=2 && messages.error) {%>
+                        <span class="text-danger"> Introduceti date valide din minim 3 caractere </span>
+                            <% } %>
+                        <input type="text" class="form-control <% if(tema.numeTema.length <=2 && messages.error){%> <%='is-invalid'%><%}%>" name="nume" value="<%= tema.numeTema %>"
+                        autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" name="id" value="<%= tema.id %> ">
+                        
+                        <label for name="prenume">Numar Tema:</label>
+                        <% if(tema.numarTema <1 && messages.error) {%>
+                        <span class="text-danger"> Introduceti un numar valid </span>
+                            <% } %>
+                        <input type="number" class="form-control <% if(tema.numarTema <=2 && messages.error){%> <%='is-invalid'%><%}%>" name="prenume" value="<%= tema.numarTema %>"
+                        autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for name="clasa">Nume Culegere:</label>
+                        <% if(tema.numeCulegere.length <=2 && messages.error) {%>
+                        <span class="text-danger"> Introduceti un nume valid de minim 3 caractere </span>
+                        <% } %>  
+                        <input type="text" class="form-control <% if(tema.numeCulegere.length <=2 && messages.error){%> <%='is-invalid'%><%}%>" name="clasa" value="<%= tema.numeCulegere %>"
+                        autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for name="scoala">Cerinta Tema:</label>
+                        <% if(tema.cerintaTema.length <=2 && messages.error) {%>
+                        <span class="text-danger"> Introduceti cerinta temei din minim 20 de caractere </span>
+                            <% } %>
+                        <input type="text" class="form-control <% if(tema.cerintaTema.length <=2 && messages.error){%> <%='is-invalid'%><%}%>" name="scoala" value="<%= tema.cerintaTema %>"
+                        autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for name="scoala">Dificultate:</label>
+                        <% if(tema.dificultate.length == 0 && messages.error) {%>
+                        <span class="text-danger"> Alegeti una dintre variante </span>
+                            <% } %>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="dificultate" value="GREU">
+                                <label class="form-check-label" for="GREU">
+                                  GREU
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="dificultate" value="MEDIU">
+                                <label class="form-check-label" for="MEDIU">
+                                  MEDIU
+                                </label>
+                              </div>
+                              <div class="form-check disabled">
+                                <input class="form-check-input" type="radio" name="dificultate" value="USOR" >
+                                <label class="form-check-label" for="USOR">
+                                  USOR
+                                </label>
+                              </div>
+                    </div>
+                    <div class="form-group">
+                        <label for name="scoala">Puncte:</label>
+                        <% if(!tema.puncte.match(/^[1-9]{1,10}$/) && messages.error) {%>
+                        <span class="text-danger"> Introduceti un numar valid pozitiv </span>
+                            <% } %>
+                        <input type="number" class="form-control<% if(!tema.puncte.match(/^[1-9]{1,10}$/) && messages.error){%> <%='is-invalid'%><%}%> " name="puncte" value="<%= parseInt(tema.puncte) %>"
+                        autocomplete="off">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <input type="submit" class="btn btn-outline-secondary" value="Adauga" />
+                    </div>
+                </form>
+            </div>
+            </div>
+        </body>
+        </html>
+        

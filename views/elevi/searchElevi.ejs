@@ -1,0 +1,96 @@
+<%- include ../fragments/headers.ejs  %> 
+
+    <div class="container"> 
+        <div class="row justify-content-center space-5">
+            <div class="col" style="text-align: center;">
+                <a href="/elevi/elevnou"><button class="btn btn-outline-secondary">Adauga un nou elev</button></a>
+            </div>
+        </div>
+        <% if(elevi.length) {%>
+        <% for( elev of elevi) { %> 
+        <div class="container gradient-bg">
+            <div class="row space-5">
+                <div class="col space-1">
+
+                    <div class="dropdown" >
+                        <a class="btn btn-outline-secondary dropdown-toggle teme-api-search" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Adauga Tema
+                        </a>
+                        
+                        <div class="dropdown-menu" id="dropdown-add" aria-labelledby="dropdownMenuLink">
+                            
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" id="idElev" value="<%=elev.id %>">
+                <div class="col space-1">
+
+                    <div class="dropdown" >
+                        <a class="btn btn-outline-secondary dropdown-toggle temele-elevului-api-search" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Renunta la tema
+                        </a>
+                        
+                        <div class="dropdown-menu" id="dropdown-add" aria-labelledby="dropdownMenuLink">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col space-1">
+                    <a href="/elevi/<%=elev.id %>/update"><button class="btn btn-outline-secondary">Modifica</button></a>
+                </div>
+                <div class="col space-1">
+                    <a href="/elevi/sterge/<%=elev.id %>"><button class="btn btn-outline-secondary">Sterge elev</button></a>
+                </div>
+                
+            </div>
+            <div class="row space-1">
+                <div class="col">
+                  <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Nume: </h1>
+              </div>
+              <div class="col">
+                  <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= elev.nume %></h1>
+              </div>
+              <div class="col">
+                  <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Prenume: </h1>
+              </div>
+              <div class="col">
+                  <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= elev.prenume %></h1>
+              </div>
+            </div>
+            <hr>
+            <div class="row space-1">
+              <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Data nasterii: </h1>
+            </div>
+            <div class="col">
+              
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= elev.data_nastere.getDate() + '-' + (elev.data_nastere.getMonth()+1) + '-' + elev.data_nastere.getFullYear()%></h1>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Clasa: </h1>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= elev.clasa %></h1>
+            </div>
+          </div>
+          <hr>
+          <div class="row space-1">
+            <div class="col">
+              <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Scoala: </h1>
+          </div>
+          <div class="col">
+              <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= elev.scoala %></h1>
+          </div>
+          <div class="col">
+              <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Puncte: </h1>
+          </div>
+          <div class="col">
+              <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= parseInt(elev.puncte) %></h1>
+          </div>
+          </div>
+        </div>
+        </div>
+        <% }} %> 
+    </div>
+  </body>
+</html>

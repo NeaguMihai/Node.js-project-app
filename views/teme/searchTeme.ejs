@@ -1,0 +1,104 @@
+<%- include ../fragments/headers.ejs  %> 
+
+    <div class="container"> 
+        <div class="row justify-content-center space-5">
+            <div class="col" style="text-align: center;">
+                <a href="/teme/temanoua"><button class="btn btn-outline-secondary">Adauga o noua tema</button></a>
+            </div>
+        </div>
+        <% if(teme.length) {%>
+        <% for( tema of teme) { %> 
+        <div class="container gradient-bg">
+            <div class="space-5 row ">
+                <div class="col space-1">
+
+                    <div class="dropdown" >
+                        <a class="btn btn-outline-secondary dropdown-toggle elevi-api-search" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Adauga Elev
+                        </a>
+                        
+                        <div class="dropdown-menu" id="dropdown-add" aria-labelledby="dropdownMenuLink">
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col space-1">
+
+                    <div class="dropdown" >
+                        <a class="btn btn-outline-secondary dropdown-toggle elevii-temei-api-search" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sterge legatura cu elevul
+                        </a>
+                        
+                        <div class="dropdown-menu" id="dropdown-add" aria-labelledby="dropdownMenuLink">
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+                <input type="hidden" id="idTema" value="<%=tema.id %>">
+                <div class="col space-1">
+                    <a href="/teme/modifica/<%=tema.id %>"><button class="btn btn-outline-secondary">Modifica</button></a>
+                </div>
+                <div class="col space-1">
+                    <a href="/teme/sterge/<%=tema.id %>"><button class="btn btn-outline-secondary">Sterge tema</button></a>
+                </div>
+            </div>
+            <div class="row space-1" >
+                
+            </div>
+            <div class="row space-1">
+                <div class="col">
+                  <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Nume Tema: </h1>
+              </div>
+              <div class="col">
+                  <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= tema.nume_tema %></h1>
+              </div>
+              <div class="col">
+                  <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Numar Tema: </h1>
+              </div>
+              <div class="col">
+                  <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= tema.numar_tema %></h1>
+              </div>
+            </div>
+            <hr>
+            <div class="row space-1">
+              <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Nume Culegere: </h1>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= tema.nume_culegere %></h1>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Dificultate: </h1>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= tema.dificultate %></h1>
+            </div>
+          </div>
+          <hr>
+          <div class="row space-1">
+            <div class="col">
+              <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Descriere: </h1>
+          </div>
+          <div class="col">
+              <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= tema.cerinta_tema %></h1>
+          </div>
+          </div>
+          <hr>
+          <div class="row space-1">
+
+              <div class="col">
+                  <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Puncte: </h1>
+                </div>
+                <div class="col">
+                    <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= parseInt(tema.puncte) %></h1>
+                </div>   
+                      
+          </div>
+        </div>
+        <% }} %> 
+    </div>
+  </body>
+  <script link="/javascript/webRequests.js"></script>
+</html>
