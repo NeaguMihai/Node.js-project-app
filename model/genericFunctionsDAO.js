@@ -41,3 +41,16 @@ exports.deleteById = function(id, type, idType){
     });
 });
 }
+
+exports.selectById = (id, tabela) => {
+    return new Promise((resolve, reject) => {
+        dbCon.query("SELECT * FROM " + tabela + " WHERE id = "+ id , (err, rows) => {
+            if(err)
+                reject(err)
+            if(rows.length == 0)
+                reject({status:'duplicat'});
+            resolve(rows[0]);
+        })
+
+    })
+}

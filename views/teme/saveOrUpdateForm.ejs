@@ -14,7 +14,7 @@
                         <% if(tema.numeTema.length <=2 && messages.error) {%>
                         <span class="text-danger"> Introduceti date valide din minim 3 caractere </span>
                             <% } %>
-                        <input type="text" class="form-control <% if(tema.numeTema.length <=2 && messages.error){%> <%='is-invalid'%><%}%>" name="nume" value="<%= tema.numeTema %>"
+                        <input type="text" class="form-control <% if(tema.numeTema.length <=2 && messages.error){%> <%='is-invalid'%><%}%>" name="numeTema" value="<%= tema.numeTema %>"
                         autocomplete="off">
                     </div>
                     <div class="form-group">
@@ -24,7 +24,7 @@
                         <% if(tema.numarTema <1 && messages.error) {%>
                         <span class="text-danger"> Introduceti un numar valid </span>
                             <% } %>
-                        <input type="number" class="form-control <% if(tema.numarTema <=2 && messages.error){%> <%='is-invalid'%><%}%>" name="prenume" value="<%= tema.numarTema %>"
+                        <input type="number" class="form-control <% if(tema.numarTema <=2 && messages.error){%> <%='is-invalid'%><%}%>" name="numarTema" value="<%= tema.numarTema %>"
                         autocomplete="off">
                     </div>
                     <div class="form-group">
@@ -32,7 +32,7 @@
                         <% if(tema.numeCulegere.length <=2 && messages.error) {%>
                         <span class="text-danger"> Introduceti un nume valid de minim 3 caractere </span>
                         <% } %>  
-                        <input type="text" class="form-control <% if(tema.numeCulegere.length <=2 && messages.error){%> <%='is-invalid'%><%}%>" name="clasa" value="<%= tema.numeCulegere %>"
+                        <input type="text" class="form-control <% if(tema.numeCulegere.length <=2 && messages.error){%> <%='is-invalid'%><%}%>" name="numeCulegere" value="<%= tema.numeCulegere %>"
                         autocomplete="off">
                     </div>
                     <div class="form-group">
@@ -40,7 +40,7 @@
                         <% if(tema.cerintaTema.length <=2 && messages.error) {%>
                         <span class="text-danger"> Introduceti cerinta temei din minim 20 de caractere </span>
                             <% } %>
-                        <input type="text" class="form-control <% if(tema.cerintaTema.length <=2 && messages.error){%> <%='is-invalid'%><%}%>" name="scoala" value="<%= tema.cerintaTema %>"
+                        <input type="text" class="form-control <% if(tema.cerintaTema.length <=2 && messages.error){%> <%='is-invalid'%><%}%>" name="cerintaTema" value="<%= tema.cerintaTema %>"
                         autocomplete="off">
                     </div>
                     <div class="form-group">
@@ -48,6 +48,7 @@
                         <% if(tema.dificultate.length == 0 && messages.error) {%>
                         <span class="text-danger"> Alegeti una dintre variante </span>
                             <% } %>
+                            <input class="form-check-input" hidden type="radio" name="dificultate" value="" checked>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="dificultate" value="GREU">
                                 <label class="form-check-label" for="GREU">
@@ -69,10 +70,10 @@
                     </div>
                     <div class="form-group">
                         <label for name="scoala">Puncte:</label>
-                        <% if(!tema.puncte.match(/^[1-9]{1,10}$/) && messages.error) {%>
+                        <% if(tema.puncte < 0  && messages.error) {%>
                         <span class="text-danger"> Introduceti un numar valid pozitiv </span>
                             <% } %>
-                        <input type="number" class="form-control<% if(!tema.puncte.match(/^[1-9]{1,10}$/) && messages.error){%> <%='is-invalid'%><%}%> " name="puncte" value="<%= parseInt(tema.puncte) %>"
+                        <input type="number" class="form-control<% if(tema.puncte < 0 && messages.error){%> <%='is-invalid'%><%}%> " name="puncte" value="<%= parseInt(tema.puncte) %>"
                         autocomplete="off">
                     </div>
 

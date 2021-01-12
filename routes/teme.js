@@ -12,4 +12,11 @@ router.get('/sterge/(:id)', temeController.deleteRequest);
 
 router.get('/temanoua', temeController.insertRequest);
 
+router.post('/temanoua', temeController.insertProcess);
+
+router.get('/(:id)/update', temeController.updateRequest)
+
+router.post('/(:id)/update', temeController.updateProcess)
+
+
 module.exports = router;

@@ -75,7 +75,7 @@ exports.checkExistanceId = (data) => {
         dbCon.query("SELECT * FROM elev WHERE id != "+ data.id +" AND nume = '"+data.nume+"' AND prenume = '" +data.prenume + "' AND clasa = '" + data.clasa +"' AND scoala = '" + data.scoala +"'", (err, rows) => {
             if(err)
                 reject(err)
-                console.log(rows.length);
+
             if(rows != 0)
                 reject({status:'duplicat'});
             resolve({status:'ok'});
@@ -84,15 +84,4 @@ exports.checkExistanceId = (data) => {
     }) 
 }
 
-exports.selectById = (id) => {
-    return new Promise((resolve, reject) => {
-        dbCon.query("SELECT * FROM elev WHERE id = "+ id , (err, rows) => {
-            if(err)
-                reject(err)
-            if(rows.length == 0)
-                reject({status:'duplicat'});
-            resolve(rows[0]);
-        })
-
-    })
-}
+exports.selectById = (id) => sqlStmt.selectById(id,'elev');

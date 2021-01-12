@@ -4,8 +4,8 @@
   color: steelblue;
 }
 
-body {
-  /* background-color: rgb(255, 251, 237); */
+.bg-dark {
+  background-color: #9AA4EC !important;
 }
 
 .space-10 {
@@ -20,6 +20,19 @@ body {
   margin-top: 10px;
 }
 
+.btn-outline-secondary {
+  color:  #6474E5;
+  border: 2px solid #6474E5;
+}
+
+.btn-outline-secondary:hover, .btn-outline-secondary:active{
+  color: rgb(255, 255, 255);
+  background-color: #6474E5 !important;
+  border: 2px solid #6474E5;
+}
+
+
 .gradient-bg {
-  box-shadow: 0px 10px 20px 5px black;
+  
+  box-shadow: 1px 10px 5px 1px #6474E5;
 }

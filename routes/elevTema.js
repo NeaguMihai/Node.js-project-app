@@ -7,5 +7,9 @@ router.get('/api/insert/(:id)/(:idTema)', elevTemaController.insertRequest);
 
 router.get('/api/delete/(:id)/(:idTema)', elevTemaController.deleteRequest);
 
+router.put('/api/update', elevTemaController.updateProcess);
+
+router.get('/legaturi', elevTemaController.showAppRequest)
+
 
 module.exports = router;

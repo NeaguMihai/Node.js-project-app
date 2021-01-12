@@ -1,0 +1,125 @@
+<%- include fragments/headers.ejs  %> 
+<div class="container space-10">
+    <% if (messages.error) { %>
+        <div class="alert alert-danger" role="alert">
+            <%- messages.error %>
+        </div>
+        <% } %>
+</div>
+<% for(d of data) {%> 
+<div class="container-fluid space-5 gradient-bg" style="width: 90%;">
+<div class="row">
+
+    <div class="col">
+        
+        <div class="row space-1">
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Nume: </h1>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= d.nume %></h1>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Prenume: </h1>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= d.prenume %></h1>
+            </div>
+        </div>
+        <hr>
+        <div class="row space-1">
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Clasa: </h1>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= d.clasa %></h1>
+            </div>
+        </div>
+        <hr>
+        <div class="row space-1">
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Scoala: </h1>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= d.scoala %></h1>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Puncte: </h1>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= parseInt(d.puncteElev) %></h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-auto justify-content-center" style="text-align: center;">
+        <div class="row">
+            <div class="col">
+                <a role="button" href="<%= d.linkTema %> " class="btn btn-outline-secondary">Mergi la linkul temei</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-outline-secondary space-1 buttonElevTema" >Modifica linkul</button>
+                <input type="hidden" id="idElev" value="<%= d.idElev %>">
+                <input type="hidden" id="idTema" value="<%= d.idTema %> ">
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        
+        <div class="row space-1">
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Nume Tema: </h1>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= d.numeTema %></h1>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Numar Tema: </h1>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= d.numarTema %></h1>
+            </div>
+        </div>
+        <hr>
+        <div class="row space-1">
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Nume Culegere: </h1>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= d.numeCulegere %></h1>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Dificultate: </h1>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= d.dificultate %></h1>
+            </div>
+        </div>
+        <hr>
+        <div class="row space-1">
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Descriere: </h1>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= d.cerintaTema %></h1>
+            </div>
+        </div>
+        <hr>
+        <div class="row space-1">
+            
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem">Puncte: </h1>
+            </div>
+            <div class="col">
+                <h1 class="font-weight-bold text-color" style="font-size: 1.5rem"><%= parseInt(d.puncteTema) %></h1>
+            </div>   
+            
+        </div>
+    </div>
+</div>
+</div>
+<% } %> 
+</body>
+<script link="/javascript/webRequests.js"></script>
+</html>
